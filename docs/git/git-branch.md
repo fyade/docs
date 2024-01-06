@@ -1,18 +1,16 @@
-# 分支
+# 本地分支
 
 ## 创建本地分支
 
+创建一个本地分支`git branch 分支名`
+
 ```shell
-# 创建一个本地分支
-# git branch 分支名
 git branch dev
 ```
 
-或者
+创建一个本地分支并与远程分支建立映射关系`git checkout -b 本地分支名 远程主机名/远程分支名`
 
 ```shell
-# 创建一个本地分支并与远程分支建立映射关系（更推荐）
-# git checkout -b 本地分支名 远程主机名/远程分支名
 git checkout -b dev origin/dev
 ```
 
@@ -24,16 +22,17 @@ git branch -vv
 
 ### 现有分支添加映射关系
 
+先把本地分支切到要添加映射关系的分支
+
 ```shell
-# 先把本地分支切到要添加映射关系的分支
 git branch --set-upstream-to origin/dev
 ```
 
-## 切换分支
+## 切换本地分支
+
+`git checkout 本地分支名`
 
 ```shell
-# 切换到本地分支
-# git checkout 本地分支名
 git checkout dev
 ```
 
