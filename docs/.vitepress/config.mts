@@ -9,23 +9,17 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       {text: 'Home', link: '/'},
-      // {text: 'Examples', link: '/markdown-examples'},
       {text: 'Git', link: '/git/git-basic'},
     ],
     sidebar: [
-      // {
-      //   text: 'Examples',
-      //   items: [
-      //     {text: 'Markdown Examples', link: '/markdown-examples'},
-      //     {text: 'Runtime API Examples', link: '/api-examples'}
-      //   ]
-      // },
       {
         text: 'Git',
         items: [
           {text: '基本使用', link: '/git/git-basic'},
           {text: '本地分支', link: '/git/git-branch'},
-          {text: '暂存', link: '/git/git-stash'}
+          {text: '暂存', link: '/git/git-stash'},
+          {text: '回滚', link: '/git/git-rollback'},
+          // {text: '补丁', link: '/git/git-cherry'}
         ]
       }
     ],
