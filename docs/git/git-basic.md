@@ -44,6 +44,18 @@ git add a.md
 勾选替换此容器...和使用可从此... → 确定 → 确定 → 确定。
 :::
 
+查看已添加的
+
+```shell
+git status
+```
+
+撤销已添加的
+
+```shell
+git reset .
+```
+
 ## 提交文件
 
 一般情况下，步骤为 commit → pull → push ：
