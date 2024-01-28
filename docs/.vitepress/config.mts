@@ -10,6 +10,8 @@ export default defineConfig({
     nav: [
       {text: 'Home', link: '/'},
       {text: 'Git', link: '/git/git-basic'},
+      {text: 'Nginx', link: '/nginx/nginx-basic'},
+      {text: 'Docker', link: '/docker/docker-basic'},
     ],
     sidebar: [
       {
@@ -20,6 +22,18 @@ export default defineConfig({
           {text: '暂存', link: '/git/git-stash'},
           {text: '回滚', link: '/git/git-rollback'},
           // {text: '补丁', link: '/git/git-cherry'}
+        ]
+      },
+      {
+        text: 'Nginx',
+        items: [
+          {text: '基本使用', link: '/nginx/nginx-basic'}
+        ]
+      },
+      {
+        text: 'Docker',
+        items: [
+          {text: '基本使用', link: '/docker/docker-basic'}
         ]
       }
     ],
