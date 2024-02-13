@@ -49,6 +49,15 @@ nginx -s stop
         gzip_types application/javascript text/css text/html; # 压缩的文件类型
         gzip_disable "MSIE [1-6]\."; # 禁用gzip压缩的条件
         gzip_vary on; # 添加响应头信息
+        
+        # WebSocket
+        location /websocket {
+			proxy_pass http://ip:port;
+			proxy_http_version 1.1;
+			proxy_set_header Upgrade $http_upgrade;
+			proxy_set_header Connection "Upgrade";
+			proxy_set_header Host $host;
+		}
 
         # 后端
         location /api/ {
