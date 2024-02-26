@@ -21,6 +21,7 @@ export default defineConfig({
           {text: '本地分支', link: '/git/git-branch'},
           {text: '暂存', link: '/git/git-stash'},
           {text: '回滚', link: '/git/git-rollback'},
+          {text: 'worktree', link: '/git/git-worktree'},
           // {text: '补丁', link: '/git/git-cherry'}
         ]
       },
