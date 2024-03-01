@@ -14,13 +14,13 @@ start nginx
 nginx -s reload
 ```
 
-推出
+退出
 
 ```shell
 nginx -s quit
 ```
 
-强行推出
+强行退出
 
 ```shell
 nginx -s stop
@@ -29,6 +29,10 @@ nginx -s stop
 ## 常用配置
 
 ```conf
+http {
+    
+    include conf/*.conf # 引入配置文件，此文件中直接写server块
+    
     # xxx.com
     server {
         listen 80;
@@ -79,4 +83,5 @@ nginx -s stop
             rewrite ^.*$ /index.html last;
         }
     }
+}
 ```
