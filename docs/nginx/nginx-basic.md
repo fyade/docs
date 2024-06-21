@@ -34,6 +34,13 @@ http {
     include conf/*.conf # 引入配置文件，此文件中直接写server块
     
     # xxx.com
+    # 若开启强制https，则新增此server块，同时移除下方server块中的80端口监听
+    server {
+        listen 80;
+        listen [::]:80;
+        server_name xxx.com;
+        return 301 https://$server_name$request_uri; # 重定向所有HTTP请求到HTTPS
+    }
     server {
         listen 80;
         listen [::]:80;
@@ -41,6 +48,7 @@ http {
 
         listen 443 ssl;
         listen [::]:443 ssl;
+        server_name xxx.com;
         ssl_certificate your_ssl_file_path(.crt);
         ssl_certificate_key your_ssl_file_path(.key);
 
@@ -50,7 +58,7 @@ http {
         gzip_buffers 32 4K; # 压缩所需缓冲区的大小
         gzip_comp_level 6; # 压缩级别1-9，数字越大压缩越好，同时也越占用CPU资源
         gzip_min_length 10k; # 允许压缩的最小字节
-        gzip_types application/javascript text/css text/html; # 压缩的文件类型
+        gzip_types application/javascript text/css; # 压缩的文件类型
         gzip_disable "MSIE [1-6]\."; # 禁用gzip压缩的条件
         gzip_vary on; # 添加响应头信息
         

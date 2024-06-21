@@ -7,6 +7,7 @@ export default defineConfig({
   lang: 'zh',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
+    logo: './assets/logo.jpg',
     nav: [
       {text: 'Home', link: '/'},
       {text: 'Git', link: '/git/git-basic'},
