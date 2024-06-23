@@ -76,6 +76,8 @@ http {
             rewrite ^/api(/.*)$ $1 break;
             proxy_pass http://ip:port;
             add_header Content-Type application/json;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         }
         # 静态资源
         location /api-file/ {
