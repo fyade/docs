@@ -14,8 +14,8 @@ hero:
       text: Nginx基本使用 →
       link: /nginx/nginx-basic
     - theme: brand
-      text: Docker基本使用 →
-      link: /docker/docker-basic
+      text: PM2基本使用 →
+      link: /pm2/pm2-basic
 
 features:
   - title: 备注

@@ -12,7 +12,7 @@ export default defineConfig({
       {text: 'Home', link: '/'},
       {text: 'Git', link: '/git/git-basic'},
       {text: 'Nginx', link: '/nginx/nginx-basic'},
-      {text: 'Docker', link: '/docker/docker-basic'},
+      {text: 'PM2', link: '/pm2/pm2-basic'},
     ],
     sidebar: [
       {
@@ -33,9 +33,9 @@ export default defineConfig({
         ]
       },
       {
-        text: 'Docker',
+        text: 'PM2',
         items: [
-          {text: '基本使用', link: '/docker/docker-basic'}
+          {text: '基本使用', link: '/pm2/pm2-basic'}
         ]
       }
     ],
