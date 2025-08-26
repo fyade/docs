@@ -7,12 +7,12 @@ export default defineConfig({
   lang: 'zh',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    logo: './assets/logo.jpg',
     nav: [
       {text: 'Home', link: '/'},
       {text: 'Git', link: '/git/git-basic'},
       {text: 'Nginx', link: '/nginx/nginx-basic'},
       {text: 'PM2', link: '/pm2/pm2-basic'},
+      {text: 'screen', link: '/screen/screen-basic'}
     ],
     sidebar: [
       {
@@ -29,13 +29,20 @@ export default defineConfig({
       {
         text: 'Nginx',
         items: [
-          {text: '基本使用', link: '/nginx/nginx-basic'}
+          {text: '基本使用', link: '/nginx/nginx-basic'},
+          {text: '目录列表', link: '/nginx/nginx-autoindex'}
         ]
       },
       {
         text: 'PM2',
         items: [
           {text: '基本使用', link: '/pm2/pm2-basic'}
+        ]
+      },
+      {
+        text: 'screen',
+        items: [
+          {text: '基本使用', link: '/screen/screen-basic'}
         ]
       }
     ],
@@ -46,5 +53,6 @@ export default defineConfig({
   markdown: {
     lineNumbers: true
   },
-  lastUpdated: true
+  lastUpdated: true,
+  outDir: '../dist'
 })

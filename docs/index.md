@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: "docs"
-  text: "docs write by FeiYang"
+  text: "document written by FeiYang"
   #  tagline: My great project tagline
   actions:
     - theme: brand
