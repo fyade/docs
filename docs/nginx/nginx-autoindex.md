@@ -47,6 +47,7 @@ your_folder_path
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>文件目录</title>
   <style>
     body {
@@ -61,10 +62,12 @@ your_folder_path
       text-align: center;
       color: #0078d7;
       margin-bottom: 5px;
+      font-size: 1.8rem;
     }
 
     .nav-bar {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       align-items: center;
       margin: 10px 0 20px;
@@ -85,6 +88,7 @@ your_folder_path
       justify-content: center;
       box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
       transition: background 0.2s ease;
+      flex-shrink: 0;
     }
 
     #back-btn:hover {
@@ -93,6 +97,7 @@ your_folder_path
 
     .breadcrumb {
       font-size: 14px;
+      word-break: break-all;
     }
 
     .breadcrumb a {
@@ -105,8 +110,14 @@ your_folder_path
       text-decoration: underline;
     }
 
+    .table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+    }
+
     table {
       width: 85%;
+      min-width: 500px;
       margin: 0 auto;
       border-collapse: collapse;
       background: white;
@@ -118,6 +129,7 @@ your_folder_path
     th, td {
       padding: 12px 16px;
       text-align: left;
+      white-space: nowrap;
     }
 
     th {
@@ -149,6 +161,30 @@ your_folder_path
       font-size: 13px;
       color: #666;
     }
+
+    /* ===== 移动端适配 ===== */
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+
+      h1 {
+        font-size: 1.4rem;
+      }
+
+      table {
+        width: 100%;
+        font-size: 14px;
+      }
+
+      th, td {
+        padding: 8px 10px;
+      }
+
+      .breadcrumb {
+        font-size: 12px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -161,18 +197,20 @@ your_folder_path
   </div>
 </div>
 
-<table id="file-list">
-  <thead>
-  <tr>
-    <th>名称</th>
-    <th>大小</th>
-    <th>修改时间</th>
-  </tr>
-  </thead>
-  <tbody id="list-body">
-  <!-- JS 动态填充 -->
-  </tbody>
-</table>
+<div class="table-wrapper">
+  <table id="file-list">
+    <thead>
+    <tr>
+      <th>名称</th>
+      <th>大小</th>
+      <th>修改时间</th>
+    </tr>
+    </thead>
+    <tbody id="list-body">
+    <!-- JS 动态填充 -->
+    </tbody>
+  </table>
+</div>
 
 <footer>
   由 ChatGPT 美化 | <span id="user-note">这里写上你的留言</span>
@@ -245,7 +283,6 @@ your_folder_path
       let mtime = "-";
       let extraParts = extra.split(/\s+/).filter(Boolean);
       if (extraParts.length >= 2) {
-        // Nginx autoindex 默认格式: 21-Aug-2024 10:35
         let dateStr = extraParts[0] + " " + extraParts[1];
         let dateObj = new Date(dateStr);
         if (!isNaN(dateObj)) {
@@ -279,7 +316,6 @@ your_folder_path
 
   loadFiles();
 
-  // 修改署名中的留言
   document.getElementById("user-note").textContent = "这里是你的专属文件目录 :)";
 </script>
 </body>
